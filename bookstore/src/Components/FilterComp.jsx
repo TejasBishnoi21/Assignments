@@ -5,7 +5,8 @@ const FilterComp= ()=>{
     const [searchParams, setSearchParams] = useSearchParams();
     const initialCategory = searchParams.getAll('category');
     const [category, setCategory] = useState(initialCategory || []);
-    
+    const initialSort = searchParams.getAll('sort');
+    const [sort, setSort] = useState(initialSort[0] || '');
 
     const handleFilter = (e)=>{
         const newCategory = [...category]
@@ -18,11 +19,16 @@ const FilterComp= ()=>{
         setCategory(newCategory)
     }
     
+    const handleSort = (e)=>{
+        setSort(e.target.value)
+    }
+
     useEffect(()=>{
         let params = {};
         params.category= category;
+        sort && (params.sort=sort);
         setSearchParams(params)
-    },[category, setSearchParams]);
+    },[category, setSearchParams, sort]);
 
     return(
         <div>
@@ -44,6 +50,18 @@ const FilterComp= ()=>{
                 <div>
                     <input type={'checkbox'} value='Motivational' onChange={handleFilter} checked={category.includes('Motivational')}/>
                     <label>Motivational</label>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <h3>Sort Books</h3>
+                <div onChange={handleSort}>
+                    <input type="radio" value={'asc'}  name='sortBy' defaultChecked={sort==='asc'}/>
+                    <label>Ascending</label>
+                </div>
+                <div onChange={handleSort}>
+                    <input type="radio" value={'desc'} name='sortBy' defaultChecked={sort==='desc'}/>
+                    <label>Descending</label>
                 </div>
             </div>
         </div>

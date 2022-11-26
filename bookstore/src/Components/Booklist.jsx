@@ -15,12 +15,14 @@ const Booklist= ()=>{
 
     useEffect(()=>{
         if(location || books.length===0){
+            const sortBy = searchParams.get('sort');
             const getBooksParams = {
                 params: {
-                    category: searchParams.getAll('category')
-                }
-
-            }
+                    category: searchParams.getAll('category'),
+                    _sort: sortBy && 'release_year',
+                    order: sortBy,
+                },
+            };
             dispatch(getBooks(getBooksParams))
         }
     },[books.length, dispatch, location.search]);
