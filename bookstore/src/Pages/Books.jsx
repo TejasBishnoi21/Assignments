@@ -1,7 +1,6 @@
 import FilterComp from "../Components/FilterComp";
 import Booklist from "../Components/Booklist";
 import styled from 'styled-components';
-
 const Books= ()=>{
     return(
         <div>
@@ -12,13 +11,11 @@ const Books= ()=>{
                 <BooksBox>
                     <Booklist />
                 </BooksBox>
-                
             </BooksMainContainer>
 
         </div>
     )
 };
-
 const BooksMainContainer = styled.div`
 display: flex;
 border: 1px solid red; 
@@ -27,13 +24,11 @@ margin: auto;
 padding: 10px;
 justify-content: space-around
 `
-
 const FilterBox = styled.div`
 border: 1px solid blue;
 width: 20%;
 padding: 10px;
 `
-
 const BooksBox = styled.div`
 border: 1px solid blue;
 width: 75%;

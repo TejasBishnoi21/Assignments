@@ -1,28 +1,23 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import * as types from './actionTypes';
-
 const getBooksReq = ()=>{
     return{
         type: types.GET_BOOKS_REQUEST
     }
 }
-
 const getBooksSuc = (payload)=>{
     return{
         type: types.GET_BOOKS_SUCCESS,
         payload
     }
 }
-
 const getBooksErr = ()=>{
     return{
         type: types.GET_BOOKS_ERROR
     }
 }
-
 function getBooks(params){
-    
     return function(dispatch){
         dispatch(getBooksReq())
         return(
@@ -34,6 +29,4 @@ function getBooks(params){
         )
     }
 }
-
-
 export default getBooks
