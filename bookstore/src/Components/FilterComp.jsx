@@ -4,15 +4,16 @@ import { useParams, useSearchParams } from 'react-router-dom';
 const FilterComp= ()=>{
     const [searchParams, setSearchParams] = useSearchParams();
     const initialCategory = searchParams.getAll('category');
-    const [category, setCategory] = useState(initialCategory || []);
     const initialSort = searchParams.getAll('sort');
-    const [sort, setSort] = useState(initialSort[0] || '');
+    const [category, setCategory] = useState(initialCategory || []);
+    const [sort, setSort] = useState(initialSort || '');
 
     const handleFilter = (e)=>{
+        // console.log(e)
         const newCategory = [...category]
 
         if(newCategory.includes(e.target.value)){
-            newCategory.splice(newCategory.indexOf(e.target.value),1);
+            newCategory.splice(newCategory.indexOf(e.target.value));
         }
         else newCategory.push(e.target.value);
 
@@ -20,14 +21,21 @@ const FilterComp= ()=>{
     }
     
     const handleSort = (e)=>{
-        setSort(e.target.value)
+        setSort(e.target.value);
+        console.log(sort)
     }
 
     useEffect(()=>{
-        let params = {};
-        params.category= category;
-        sort && (params.sort=sort);
-        setSearchParams(params)
+        // let params = {};
+        // params.category= category;
+        // sort && (params.sort=sort);
+        // setSearchParams(params)
+        if(category || sort){
+            let params={};
+            category && (params.category = category)
+            sort && (params.sort = sort)
+            setSearchParams(params)
+        }
     },[category, setSearchParams, sort]);
 
     return(
@@ -53,13 +61,13 @@ const FilterComp= ()=>{
                 </div>
             </div>
             <hr />
-            <div>
+            <div onChange={handleSort}>
                 <h3>Sort Books</h3>
-                <div onChange={handleSort}>
-                    <input type="radio" value={'asc'}  name='sortBy' defaultChecked={sort==='asc'}/>
+                <div>
+                    <input  type="radio" value={'asc'}  name='sortBy' defaultChecked={sort==='asc'}/>
                     <label>Ascending</label>
                 </div>
-                <div onChange={handleSort}>
+                <div>
                     <input type="radio" value={'desc'} name='sortBy' defaultChecked={sort==='desc'}/>
                     <label>Descending</label>
                 </div>

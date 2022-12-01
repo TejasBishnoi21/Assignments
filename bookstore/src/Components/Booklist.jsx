@@ -9,7 +9,7 @@ const Booklist= ()=>{
     const books= useSelector((store)=> store.books)
     const dispatch= useDispatch();
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
     const [searchParams]= useSearchParams()
 
     useEffect(()=>{
@@ -19,15 +19,15 @@ const Booklist= ()=>{
                 params: {
                     category: searchParams.getAll('category'),
                     _sort: sortBy && 'release_year',
-                    order: sortBy,
+                    _order: sortBy,
                 },
             };
             dispatch(getBooks(getBooksParams))
         }
-    },[books.length, dispatch, location.search]);
+    },[location.search]);
 
     return(
-        <div>
+        <div style={{width:'100%',border:'1px solid teal',display: 'grid',gridTemplateColumns:'repeat(4,1fr)'}}>
             {
                 books.length>0 && books.map(singleBook =>{
                     return <BookWrapper key={singleBook.id}>
@@ -40,7 +40,7 @@ const Booklist= ()=>{
 }
 
 const BookWrapper = styled.div`
-width: 100%;
+// width: 100%;
 border: 1px solid #ddd;
 margin-bottom: 20px;
 padding: 10px`

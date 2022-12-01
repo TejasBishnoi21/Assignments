@@ -6,6 +6,12 @@
   height: 40vmin;
   pointer-events: none;
 }
+.xyz{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  border: 1px solid green;
+  width: 100%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

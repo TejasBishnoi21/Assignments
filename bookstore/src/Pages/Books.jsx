@@ -3,17 +3,20 @@ import Booklist from "../Components/Booklist";
 import styled from 'styled-components';
 const Books= ()=>{
     return(
-        <div>
+        
             <BooksMainContainer>
                 <FilterBox>
                     <FilterComp />
                 </FilterBox>
-                <BooksBox>
+
+                {/* <BooksBox> */}
+                <div className="xyz">
                     <Booklist />
-                </BooksBox>
+
+                </div>
+                {/* </BooksBox> */}
             </BooksMainContainer>
 
-        </div>
     )
 };
 const BooksMainContainer = styled.div`
@@ -26,17 +29,17 @@ justify-content: space-around
 `
 const FilterBox = styled.div`
 border: 1px solid blue;
-width: 20%;
+width: 30%;
 padding: 10px;
 `
 const BooksBox = styled.div`
 border: 1px solid blue;
-width: 75%;
-padding:10px;
+width: 98%;
+// padding:10px;
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+grid-template-columns: repeat(4,1fr);
 grid-gap:20px;
-justify-content: center
+// justify-content: center
 `
 
 export default Books;
