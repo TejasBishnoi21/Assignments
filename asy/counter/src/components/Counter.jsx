@@ -18,7 +18,7 @@ const Counter = ()=>{
     return <>
         <div>
             <h2 data-testid='counter-header'>Counter</h2>
-            <h3 data-testid='count'>{count}</h3>
+            <h1 style={{'fontFamily':'monospace'}} data-testid='count'>{count}</h1>
             <button data-testid='add-btn' onClick={()=>add()}>+</button>
             <button disabled={count <=0} data-testid='subtract-btn' onClick={()=>subs()}>-</button>
             <button data-testid='double-btn' onClick={()=>double()}>Double</button>
