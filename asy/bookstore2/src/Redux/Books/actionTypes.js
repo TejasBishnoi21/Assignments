@@ -1,0 +1,9 @@
+export const GET_BOOKS_REQUEST = 'GET_BOOKS_REQUEST';
+
+export const GET_BOOKS_SUCCESS = 'GET_BOOKS_SUCCESS';
+
+export const GET_BOOKS_ERROR = 'GET_BOOKS_ERROR';
+
+export const EDIT_BOOK_SUCCESS = 'EDIT_BOOK_SUCCESS';
+
+
