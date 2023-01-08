@@ -4,7 +4,6 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import getLogin from "../Redux/Auth/action";
 
-
 const Login=()=>{
     const [email, setEmail] = useState("");
     const [password, setPass] = useState("");

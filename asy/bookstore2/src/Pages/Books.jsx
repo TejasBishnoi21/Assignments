@@ -8,9 +8,7 @@ const Books= ()=>{
             <BooksMainContainer >
                 <FilterBox>
                     <FilterComp />
-                </FilterBox>
-
-                {/* <BooksBox> */}
+                </FilterBox>               
                 <div className="xyz" style={{
                     'padding':'10px',
                     'border':'1px solid #ddd',
@@ -19,7 +17,6 @@ const Books= ()=>{
                     <Booklist />
 
                 </div>
-                {/* </BooksBox> */}
             </BooksMainContainer>
 
     )
