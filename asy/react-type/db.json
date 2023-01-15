@@ -1,0 +1,24 @@
+{
+  "todo": [
+    {
+      "id": 1,
+      "title": "default task",
+      "status": false
+    },
+    {
+      "title": "task1",
+      "status": false,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
