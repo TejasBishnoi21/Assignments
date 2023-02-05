@@ -1,0 +1,16 @@
+{
+  "students": [
+    { "name": "tejas", "age": 25 },
+    { "name": "rahul", "age": 45 },
+    { "name": "raj", "age": 25 },
+    { "name": "rudra", "city": "delhi", "age": 25 },
+    { "name": "vishal", "city": "mumbai", "age": 23 }
+  ],
+  "authors": [
+    { "name": "mark", "age": 34 },
+    { "name": "jack", "age": 34 },
+    { "name": "john", "age": 60 },
+    { "name": "sampat", "age": 34 },
+    { "name": "julia", "age": 34 }
+  ]
+}

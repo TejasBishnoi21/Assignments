@@ -1,0 +1,4 @@
+Route visited: /about | Method: GET
+Route visited: / | Method: GET
+Route visited: /data | Method: GET
+Route visited: / | Method: GET
