@@ -1,0 +1,12 @@
+1. npm init -y
+2. npm i express nodemon
+3. in package.json>scripts, add "server":"nodemon index.js"
+4. touch index.js
+5. const express = require("express")
+6. const app = express(); // invoking express
+7. Create your server like this=>
+    let port = 3200;
+    app.listen(port, ()=>{
+    console.log(`server is running at port: ${port}`);
+    })
+8. 
