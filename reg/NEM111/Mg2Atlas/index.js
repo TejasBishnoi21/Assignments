@@ -8,7 +8,8 @@ app.use(express.json()) // Middleware
 app.get("/", (req, res)=>{
     res.send("Welcome to HomePage")
 })
-app.use("/users", userRouter)
+
+app.use("/users", userRouter)  // default route for users
 
 const port = 4500;
 app.listen(port, async ()=>{
