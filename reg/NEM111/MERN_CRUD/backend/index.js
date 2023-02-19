@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express() // Invoking express
+var cors = require('cors')
 app.use(express.json()) // Middleware
+app.use(cors())
 const { connection } = require("./config/db")
 const { userRouter } = require("./routes/user.routes")
 var jwt = require('jsonwebtoken');
@@ -22,7 +24,10 @@ app.post("/login", async(req, res)=>{
                 if(result)
                 {
                     var token = jwt.sign({ ID: user[0]._id }, 'masai');
-                    res.send(`Welcome ${user[0].name}, your token is: ${token}`)
+                    res.send({
+                        "msg":`Welcome ${user[0].name}`,
+                        "token":token
+                    })
                 }
                 else res.send(`Wrong Password`)
             });
@@ -33,7 +38,7 @@ app.post("/login", async(req, res)=>{
     }
 })
 
-app.use(jwtVerifier) // middleware for jwt
+// app.use(jwtVerifier) // middleware for jwt
 app.use("/employees", userRouter)
 
 

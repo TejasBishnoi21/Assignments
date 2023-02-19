@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+
+    <style>
+        *{
+            text-align: center;
+        }
+        .navbar_box{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        #container{
+            width: 80%;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+        .card{
+            border: 1px solid #ddd;
+            width: 80%;
+            margin: auto;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div class="navbar_box">
+            <a href="./login.html">Login</a>
+            <a href="./signUp.html">Register</a>
+            <a href="./home.html">Home</a>
+            <a href="./employees.html">Employee Data</a>
+        </div>
+    </div>
+    <h1>All Employees List</h1>
+
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+    let data = new Array()
+    const getData=()=>{
+        fetch("http://localhost:4800/employees/").then(res=>res.json())
+        .then(res=>appendData(res))
+        .catch(err=>console.log(err))
+    }
+    getData()
+
+    const appendData = (data)=>{
+        const mainBox = document.getElementById('container');
+        
+        data.forEach((el)=>{
+            const card = document.createElement('div');
+            card.setAttribute("class","card")
+
+            const name = document.createElement('h4');
+            name.innerText=el.name;
+
+            const email = document.createElement('p');
+            email.innerText=el.email;
+
+            const age = document.createElement('p');
+            age.innerText="Age: "+el.age;
+
+            card.append(name, email, age);
+            mainBox.append(card)
+        })
+    }
+</script>

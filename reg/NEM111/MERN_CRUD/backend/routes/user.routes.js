@@ -16,7 +16,7 @@ userRouter.post("/add", async(req, res)=>{
                 user.password = hash;
                 const newUser = new employeeModel(user);
                 await newUser.save()
-                res.send(`Dear ${user.name}, your details are added successfully`)
+                res.send({"msg":`Dear ${newUser.name}, you are registered`})
 
             }
         });
@@ -44,7 +44,7 @@ userRouter.patch("/update/:id", async(req, res)=>{
     try{
         await employeeModel.findByIdAndUpdate(ID, newDetails)
         const user = await employeeModel.findById(ID)
-        res.send(`Dear, ${user.name} your details are updated`)
+        res.send({"msg":`Dear ${user.name}, your details are updated`})
     }catch(err){
         res.send(err.message)
     }
@@ -58,7 +58,7 @@ userRouter.delete("/delete/:id", async(req, res)=>{
     try{
         const user = await employeeModel.findById(ID)
         await employeeModel.findByIdAndDelete(ID)
-        res.send(`Dear, ${user.name} your details are deleted`)
+        res.send({"msg":`Dear ${user.name}, your details are deleted`})
     }catch(err){
         res.send(err.message)
     }
