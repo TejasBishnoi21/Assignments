@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express() // Invoking express
+require('dotenv').config();
 var cors = require('cors')
 app.use(express.json()) // Middleware
 app.use(cors())
@@ -42,15 +43,14 @@ app.post("/login", async(req, res)=>{
 app.use("/employees", userRouter)
 
 
-const port = 4800;
-app.listen(port, async(req, res)=>{
+app.listen(process.env.port, async(req, res)=>{
     try{
         await connection;
         console.log("Connected to DB");
     }catch(err){
         console.log(err.message);
     }
-    console.log(`server is running at port: ${port}`);
+    console.log(`server is running at port: ${process.env.port}`);
 })
 
 
